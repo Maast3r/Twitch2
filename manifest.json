@@ -1,7 +1,7 @@
 {
 	"manifest_version": 2,
 
-	"name": "First extension",
+	"name": "Twitch2",
 	"description" : "This extension adds a second stream to a page.",
 	"version": "0.1",
 
@@ -12,5 +12,5 @@
   	},
 	"permissions": [
     	"tabs", "http://*/*", "https://*/*"
-  	]
+  ]
 }

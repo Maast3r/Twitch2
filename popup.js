@@ -3,13 +3,13 @@
 	assigns the button to do the thing
 */
 
-function click3(e){
+function addStream(e){
 	console.log("add dat stream doe");
-	chrome.tabs.executeScript(null, {file: "custom.js"});
+	chrome.tabs.executeScript(null, {file: "addStream.js"});
 }
 
 document.addEventListener('DOMContentLoaded', function (){
     var submit = document.getElementById("submit");
 
-    submit.addEventListener('click', click3);
+    submit.addEventListener('click', addStream);
 });
