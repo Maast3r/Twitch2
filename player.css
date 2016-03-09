@@ -1,0 +1,13 @@
+::selection {
+    background: purple;
+    color: white;
+}
+
+#123streamWrapper {
+  width: 500px;
+  height:300px;
+}
+
+#123stream {
+  width: 100%;
+}

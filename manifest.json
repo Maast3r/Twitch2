@@ -2,11 +2,11 @@
 	"manifest_version": 2,
 
 	"name": "Twitch2",
-	"description" : "This extension adds a second stream to a page.",
+	"description" : "This extension adds a Twitch stream to a page.",
 	"version": "0.1",
 
 	"browser_action": {
-      "default_title": "Set this page's color scheme.",
+      "default_title": "This extension adds a Twitch stream to a page.",
       "default_icon": "icon.png",
       "default_popup": "popup.html"
   	},
