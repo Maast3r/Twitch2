@@ -1,16 +1,19 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta charset="utf-8" />
+		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+		<link rel="stylesheet" href="https://code.getmdl.io/1.1.2/material.indigo-pink.min.css">
+		<script src="material.min.js"></script>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>Twitch2</title>
 		<script src="popup.js"></script>
 	</head>
 	<body>
-		<form id="customForm">
-			<input id="input" type="text" name="streamToAdd" placeholder="Stream To Add">
-			<br/>
-			<button id="submit">Add Streamer!</button>
-			<br/>
+		<form id="customForm" action="#">
+		  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+		    <input class="mdl-textfield__input" id="input" type="text" id="streamToAdd">
+		    <label class="mdl-textfield__label" for="streamToAdd">Stream To Add</label>
+		  </div>
 		</form>
 	</body>
 </html>

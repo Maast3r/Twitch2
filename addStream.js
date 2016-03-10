@@ -22,6 +22,7 @@ function divMove(e){
 haltAndCatchFire();
 
 function haltAndCatchFire(){
+  console.log("start");
   if(document.getElementById("123streamWrapper")){
     var temp = document.getElementById("123streamWrapper");
     temp.parentNode.removeChild(temp);
@@ -30,22 +31,44 @@ function haltAndCatchFire(){
 }
 
 function addStream(){
-  var stream = "<div id=\"123streamWrapper\"><object id=\"123stream\" type=\"application/x-shockwave-flash\" height=\"100%\" width=\"100%\" data=\"https://www.twitch.tv/widgets/live_embed_player.swf?channel=" + name + "\" bgcolor=\"#000000\"><param name=\"allowFullScreen\" value=\"true\" /><param name=\"allowScriptAccess\" value=\"always\" /><param name=\"allowNetworking\" value=\"all\" /><param name=\"scale\" value=\"default\"><param name=\"movie\" value=\"https://www.twitch.tv/widgets/live_embed_player.swf\" /><param name=\"flashvars\" value=\"hostname=https://www.twitch.tv&channel=" + name + "&auto_play=true&start_volume=25\" /></object></div>";
+  var stream = "<div id=\"123streamWrapper\"><button id=\"closeButton\" class=\"mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored\"><i class=\"material-icons\" style=\"font-size: 11px;\">clear</i></button><br/><object id=\"123stream\" type=\"application/x-shockwave-flash\" height=\"100%\" width=\"100%\" data=\"https://www.twitch.tv/widgets/live_embed_player.swf?channel=" + name + "\" bgcolor=\"#000000\"><param name=\"allowFullScreen\" value=\"true\" /><param name=\"allowScriptAccess\" value=\"always\" /><param name=\"allowNetworking\" value=\"all\" /><param name=\"scale\" value=\"default\"><param name=\"movie\" value=\"https://www.twitch.tv/widgets/live_embed_player.swf\" /><param name=\"flashvars\" value=\"hostname=https://www.twitch.tv&channel=" + name + "&auto_play=true&start_volume=25\" /></object></div>";
   document.body.innerHTML = stream + document.body.innerHTML;
   document.getElementById('123streamWrapper').addEventListener('mousedown', mouseDown, false);
   window.addEventListener('mouseup', mouseUp, false);
   styleStream();
+  buttonClick();
 }
 
 function styleStream(){
   var wrapper = document.getElementById("123streamWrapper");
+  var close = document.getElementById("closeButton");
   var stream = document.getElementById("123stream");
 
-  wrapper.style.width = "475px";
-  wrapper.style.height = "300px";
+  wrapper.style.width = "475";
+  wrapper.style.height = "316px";
   wrapper.style.position = "relative";
   wrapper.style.cursor = "move";
   wrapper.style.zIndex = "123123123123";
 
+  close.style.float = "right";
+  close.style.minWidth = "0px";
+  close.style.minHeight = "0px";
+  close.style.height = "16px";
+  close.style.width = "16px";
+
+  stream.style.width = "475px";
+  stream.style.height = "300px";
   stream.style.cursor = "move";
+}
+
+function buttonClick(){
+  var button = document.getElementById("closeButton");
+  button.onclick = function(){
+    deleteDiv();
+  }
+}
+
+function deleteDiv(){
+  var wrapper = document.getElementById("123streamWrapper");
+  wrapper.parentNode.removeChild(wrapper);
 }
