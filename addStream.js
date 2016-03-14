@@ -22,46 +22,64 @@ function divMove(e){
 haltAndCatchFire();
 
 function haltAndCatchFire(){
-  console.log("start");
-  if(document.getElementById("123streamWrapper")){
-    var temp = document.getElementById("123streamWrapper");
-    temp.parentNode.removeChild(temp);
-  }
+  deleteDiv();
   addStream();
 }
 
 function addStream(){
-  var stream = "<div id=\"123streamWrapper\"><button id=\"closeButton\" class=\"mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored\"><i class=\"material-icons\" style=\"font-size: 11px;\">clear</i></button><br/><object id=\"123stream\" type=\"application/x-shockwave-flash\" height=\"100%\" width=\"100%\" data=\"https://www.twitch.tv/widgets/live_embed_player.swf?channel=" + name + "\" bgcolor=\"#000000\"><param name=\"allowFullScreen\" value=\"true\" /><param name=\"allowScriptAccess\" value=\"always\" /><param name=\"allowNetworking\" value=\"all\" /><param name=\"scale\" value=\"default\"><param name=\"movie\" value=\"https://www.twitch.tv/widgets/live_embed_player.swf\" /><param name=\"flashvars\" value=\"hostname=https://www.twitch.tv&channel=" + name + "&auto_play=true&start_volume=25\" /></object></div>";
+  var stream = "<div id=\"123streamWrapper\"><div id='dragBar'></div><button id=\"closeButton\" class=\"mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored\"><i class=\"material-icons\" style=\"font-size: 12px;\">clear</i></button><br/><object id=\"123stream\" type=\"application/x-shockwave-flash\" height=\"100%\" width=\"100%\" data=\"https://www.twitch.tv/widgets/live_embed_player.swf?channel=" + name + "\" bgcolor=\"#000000\"><param name=\"allowFullScreen\" value=\"true\" /><param name=\"allowScriptAccess\" value=\"always\" /><param name=\"allowNetworking\" value=\"all\" /><param name=\"scale\" value=\"default\"><param name=\"movie\" value=\"https://www.twitch.tv/widgets/live_embed_player.swf\" /><param name=\"flashvars\" value=\"hostname=https://www.twitch.tv&channel=" + name + "&auto_play=true&start_volume=100\" /></object></div>";
   document.body.innerHTML = stream + document.body.innerHTML;
-  document.getElementById('123streamWrapper').addEventListener('mousedown', mouseDown, false);
+  document.getElementById('dragBar').addEventListener('mousedown', mouseDown, false);
   window.addEventListener('mouseup', mouseUp, false);
   styleStream();
-  buttonClick();
+  streamTitle();
+  closeStream();
 }
 
 function styleStream(){
   var wrapper = document.getElementById("123streamWrapper");
+  var dragBar = document.getElementById("dragBar");
   var close = document.getElementById("closeButton");
   var stream = document.getElementById("123stream");
 
-  wrapper.style.width = "475";
+  wrapper.style.width = "475px";
   wrapper.style.height = "316px";
-  wrapper.style.position = "relative";
+  wrapper.style.position = "fixed";
   wrapper.style.cursor = "move";
   wrapper.style.zIndex = "123123123123";
+  wrapper.style.top = "50%";
+  wrapper.style.marginTop = "-158px";
+  wrapper.style.left = "50%";
+  wrapper.style.marginLeft = "-237.5px";
+
+  dragBar.style.width = "475px";
+  dragBar.style.height = "24px";
+  dragBar.style.float = "left";
+  dragBar.style.zIndex = "-1";
+  dragBar.style.position = "absolute";
+  dragBar.style.background = "black";
+  dragBar.style.color = "white";
 
   close.style.float = "right";
   close.style.minWidth = "0px";
   close.style.minHeight = "0px";
   close.style.height = "16px";
   close.style.width = "16px";
+  close.style.position = "absolute";
+  close.style.right = "0";
 
   stream.style.width = "475px";
   stream.style.height = "300px";
   stream.style.cursor = "move";
+  stream.style.position = "absolute";
 }
 
-function buttonClick(){
+function streamTitle(){
+  var dragBar = document.getElementById("dragBar");
+  dragBar.innerHTML = "Watching " + name + " :)";
+}
+
+function closeStream(){
   var button = document.getElementById("closeButton");
   button.onclick = function(){
     deleteDiv();
@@ -69,6 +87,8 @@ function buttonClick(){
 }
 
 function deleteDiv(){
-  var wrapper = document.getElementById("123streamWrapper");
-  wrapper.parentNode.removeChild(wrapper);
+  if(document.getElementById("123streamWrapper")){
+    var wrapper = document.getElementById("123streamWrapper");
+    wrapper.parentNode.removeChild(wrapper);
+  }
 }
