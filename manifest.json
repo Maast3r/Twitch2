@@ -1,7 +1,7 @@
 {
 	"manifest_version": 2,
 
-	"name": "Twitch2",
+	"name": "Twitch2Go",
 	"description" : "This extension adds a Twitch stream to a page.",
 	"version": "0.1",
 
