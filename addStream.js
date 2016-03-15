@@ -76,7 +76,7 @@ function styleStream(){
 
 function streamTitle(){
   var dragBar = document.getElementById("dragBar");
-  dragBar.innerHTML = "Watching " + name + " :)";
+  dragBar.innerHTML = "Click me to drag :)";
 }
 
 function closeStream(){
