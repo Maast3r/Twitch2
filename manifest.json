@@ -3,7 +3,7 @@
 
 	"name": "Twitch2Go",
 	"description" : "This extension adds a draggable Twitch stream to a page.",
-	"version": "1.0",
+	"version": "1.1",
 
 	"browser_action": {
       "default_title": "This extension adds a draggable Twitch stream to a page.",
