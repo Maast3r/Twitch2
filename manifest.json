@@ -1,16 +1,23 @@
 {
-	"manifest_version": 2,
+    "manifest_version": 2,
 
-	"name": "Twitch2Go",
-	"description" : "This extension adds a draggable Twitch stream to a page.",
-	"version": "1.1",
+    "name": "Twitch2Go",
+    "description" : "This extension adds a resizable Twitch stream to a page. Vist https://github.com/Maast3r/Twitch2Go for details.",
+    "version": "2.0",
 
-	"browser_action": {
-      "default_title": "This extension adds a draggable Twitch stream to a page.",
+    "browser_action": {
+      "default_title": "This extension adds a resizable Twitch stream to a page.",
       "default_icon": "icon.png",
       "default_popup": "popup.html"
-  	},
-	"permissions": [
-    	"tabs", "http://*/*", "https://*/*"
+    },
+    "content_scripts": [
+        {
+            "matches": ["http://*/*", "https://*/*"],
+            "ja": ["material.min.js"],
+            "css": ["material.indigo-pink.min.css", "streamStyle.css"]
+        }
+    ],
+    "permissions": [
+        "tabs", "http://*/*", "https://*/*"
   ]
 }
